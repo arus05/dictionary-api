@@ -8,20 +8,29 @@ export default function WordDetailsHeader(){
   const {isLight} = useContext(ThemeContext);
   const {word} = useContext(WordContext);
   
+  function playAudio(){
+    try{
+      const audio = new Audio(word.phonetics[0].audio);
+      audio.play();
+    }catch(err){
+      console.error(err);
+    }
+  }
+
   return(
     word && (
       <div className="word-details-header">
 
         <div className="word-details-header-left">
           <h1 className="word-heading">
-            { word.word && word.word }
+            {word.word}
           </h1>
           <p className="word-phonetic">
-            { word.phonetics && ((word.phonetics)[1]).text}
+            {((word.phonetics)[0]).text}
           </p>
         </div>
 
-        <button className="voice-play-btn">
+        <button className="voice-play-btn" onClick={playAudio}>
           <img src={isLight ? playBtnLight : playBtnDark} alt="image of a play button" />
         </button>
 
