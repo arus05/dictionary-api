@@ -7,16 +7,15 @@ export default function WordContextProvider(props){
   const [word, setWord] = React.useState(null);
 
   React.useEffect(() => {
-    fetch("https://api.dictionaryapi.dev/api/v2/entries/en/hello")
+    fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/hello`)
       .then(response => response.json())
       .then(data => {
         setWord(data[0]);
-        console.log(data[0]);
       })
   }, [])
 
   return(
-    <WordContext.Provider value={{word}}>
+    <WordContext.Provider value={{word, setWord}}>
       {props.children}
     </WordContext.Provider>
   )

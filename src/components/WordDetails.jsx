@@ -15,9 +15,9 @@ export default function WordDetails(){
     return <h2>Loading...</h2>
   }
 
-  const wordMeaningEls = word.meanings?.map(meaning => (
+  const wordMeaningEls = word.meanings.map(meaning => (
     <WordMeaning key={nanoid()} meaning={meaning}/>
-  )) || null
+  ))
 
   return(
     <div className="word-details">

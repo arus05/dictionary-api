@@ -10,13 +10,12 @@ export default function WordDetailsHeader(){
   
   function playAudio(){
     try{
-      const audio = new Audio(word.phonetics[0].audio);
+      const audio = new Audio(word.phonetics[1].audio);
       audio.play();
     }catch(err){
-      console.error(err);
+      console.log("Audio not available");
     }
   }
-
   return(
     word && (
       <div className="word-details-header">
@@ -26,7 +25,7 @@ export default function WordDetailsHeader(){
             {word.word}
           </h1>
           <p className="word-phonetic">
-            {((word.phonetics)[0]).text}
+            {((word.phonetics)[1]).text}
           </p>
         </div>
 

@@ -3,11 +3,17 @@ import { nanoid } from "nanoid";
 
 export default function WordMeaning({meaning}){
 
-  const definitionEls = meaning.definitions.map(definition => (
-    <li key={nanoid()}>
-      {definition.definition}
+  const definitionEls = meaning.definitions.map(definition => {
+    return (
+    <li key={nanoid()} className="definition">
+      <p className="definition-content">{definition.definition}</p>
+      {definition.example &&
+      <p className="definition-example">{definition.example}</p>}
     </li>
-  ))
+    )
+  })
+
+
   const synonymEls = meaning.synonyms.map(synonym => (
     <li className="synonym" key={nanoid()}>{synonym}</li>
   ))
@@ -34,7 +40,7 @@ export default function WordMeaning({meaning}){
       </div>}
       
       {synonymEls.length > 0 &&
-        <div className="synonyms">
+      <div className="synonyms">
         <h3 className="synonyms-title">
           Synonyms
         </h3>

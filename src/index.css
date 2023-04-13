@@ -40,11 +40,13 @@
   --clr-seperator: var(--clr-dark);
 }
 
+/* General Styles */
 body{
   margin: 0;
   font-family: var(--ff-primary);
   padding-inline: 2em;
   background-color: var(--clr-bg);
+  font-size: 1.15em;
 }
 
 input,
@@ -73,7 +75,21 @@ img{
   max-width: 100%;
 }
 
+ul{
+  padding-left: 1.25em;
+}
+
+li::marker{
+  color: var(--clr-purple);
+}
+
 /* Class Styles */
+
+/* App */
+.App{
+  max-width: 800px;
+  margin-inline: auto;
+}
 
 /* Header */
 .header{
@@ -100,6 +116,7 @@ img{
 .font-selector-text{
   font-weight: var(--fw-3);
   font-size: 0.9rem;
+  color: var(--clr-text-1);
 }
 
 .toggle-theme{
@@ -151,6 +168,9 @@ img{
   flex-grow: 1;
   background-color: transparent;
   padding: 0.75em 0;
+  font-weight: var(--fw-2);
+  font-size: 1.25rem;
+  color: var(--clr-text-1);
 }
 
 .search-input:focus{
@@ -169,6 +189,11 @@ img{
   background: transparent;
 }
 
+.search-btn:hover{
+  opacity: 0.5;
+  cursor: pointer;
+}
+
 /* Word Details Header */
 .word-details-header{
   display: flex;
@@ -180,6 +205,7 @@ img{
   font-size: 4rem;
   margin: 0;
   padding: 0;
+  color: var(--clr-text-1);
 }
 
 .word-phonetic{
@@ -197,21 +223,17 @@ img{
   opacity: 0.8;
 }
 
-
-
 /* Meaning Section */
-.word-meaning{
 
+.part-of-speech{
+  font-style: italic;
 }
 
 .meaning-seperator{
   display: flex;
   align-items: center;
   gap: 1em;
-}
-
-.part-of-speech{
-  
+  color: var(--clr-text-1);
 }
 
 .seperator-line{
@@ -219,4 +241,49 @@ img{
   flex-grow: 1;
   opacity: 0.1;
   background: var(--clr-seperator);
+}
+
+.definition-title,
+.synonyms-title,
+.antonyms-title{
+  color: var(--clr-text-2);
+  font-weight: var(--fw-2);
+}
+
+.definition{
+  color: var(--clr-text-1);
+  margin-bottom: 1em;
+}
+
+.definition-content{
+  margin-bottom: 0.5em;
+  color: var(--clr-text-1);
+}
+
+.definition-example{
+  color: var(--clr-text-2);
+}
+
+.synonyms,
+.antonyms{
+  display: flex;
+  align-items: top;
+  gap: 1em;
+}
+
+.synonym-list,
+.antonym-list{
+  list-style: none;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  flex-wrap: wrap;
+}
+
+.synonym,
+.antonym{
+  font-weight: var(--fw-3);
+  color: var(--clr-text-3);
+  font-size: 1.1em;
 }
