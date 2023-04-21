@@ -24,7 +24,7 @@ export default function WordMeaning({meaning}){
 
   return(
     <section className="word-meaning">
-      <div className="meaning-seperator">
+      <div className="meaning-seperator ">
         <h2 className="part-of-speech">
         { meaning.partOfSpeech}
         </h2>

@@ -27,6 +27,8 @@
   --clr-search-bar: var(--clr-grey-1);
   --clr-seperator: var(--clr-grey-3);
 
+  --bs-search-bar: none;
+
   --outline-search-bar: 2px solid var(--clr-purple);
 }
 
@@ -38,6 +40,7 @@
   --clr-bg-btn: var(--clr-purple);
   --clr-search-bar: var(--clr-grey-4);
   --clr-seperator: var(--clr-dark);
+  --bs-search-bar: 0 10px 10px var(--clr-purple);
 }
 
 /* General Styles */
@@ -47,6 +50,7 @@ body{
   padding-inline: 2em;
   background-color: var(--clr-bg);
   font-size: 1.15em;
+  transition: background-color 200ms linear;
 }
 
 input,
@@ -132,6 +136,7 @@ li::marker{
   border-radius: 0.75rem;
   padding: 0.1em 0.15em;
   position: relative;
+  cursor: pointer;
 }
 
 .toggle-theme-circle{
@@ -224,9 +229,13 @@ li::marker{
 }
 
 /* Meaning Section */
+.word-meaning{
+  margin-bottom: 2em;
+}
 
 .part-of-speech{
   font-style: italic;
+  margin: 0;
 }
 
 .meaning-seperator{
@@ -234,6 +243,7 @@ li::marker{
   align-items: center;
   gap: 1em;
   color: var(--clr-text-1);
+  margin-top: 3em;
 }
 
 .seperator-line{
@@ -248,6 +258,7 @@ li::marker{
 .antonyms-title{
   color: var(--clr-text-2);
   font-weight: var(--fw-2);
+  margin: 0;
 }
 
 .definition{
@@ -271,10 +282,18 @@ li::marker{
   gap: 1em;
 }
 
+.meaning-seperator,
+.synonyms,
+.anthonyms,
+.defintions{
+  margin-bottom: 1.5em;
+}
+
 .synonym-list,
 .antonym-list{
   list-style: none;
   padding: 0;
+  margin: 0;
   display: flex;
   align-items: center;
   gap: 0.5em;

@@ -1,12 +1,25 @@
-import React from "react"
-import SearchIcon from "./../assets/light/search-btn-light.svg"
+import React from "react";
+import SearchIcon from "./../assets/light/search-btn-light.svg";
 import { WordContext } from "../contexts/WordContext";
-import getWord from "../api/getWord"
+import { LoadingContext } from "../contexts/LoadingContext";
+import getWord from "../api/getWord";
 
 export default function SearchBar(){
-
   const [input, setInput] = React.useState("hello");
   const { setWord } = React.useContext(WordContext);
+  const {isLoading, setIsLoading, error, setError} = React.useContext(LoadingContext);
+
+  async function handleClick(){
+    setError(false);
+    setIsLoading(true);
+    try{
+      const word = await getWord(input);
+      setWord(word);
+      setIsLoading(false);
+    }catch(err){
+      setError(err);
+    }
+  }
 
   return(
     <div className="search">
@@ -20,22 +33,17 @@ export default function SearchBar(){
           setInput(e.target.value);
         }}
         onKeyUp={(e) => {
-          if(e.keyCode === 13){
+          if(e.key === "Enter"){
             e.preventDefault();
-            getWord(input)
-              .then(word => setWord(word))
-              .catch(err => console.log(err))
+            handleClick();
           }
 
         }}
       />
       <button
         className="search-btn"
-        onClick = {() => {
-          getWord(input)
-              .then(word => setWord(word))
-              .catch(err => console.log(err))
-        }}
+        id="search-btn"
+        onClick = {handleClick}
       >
         <img src={SearchIcon} alt="A search icon (magnifying glass)" />
       </button>

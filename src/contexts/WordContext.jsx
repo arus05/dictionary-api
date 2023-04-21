@@ -1,10 +1,13 @@
 import React from "react"
+import getWord from "../api/getWord";
 
-export const WordContext = React.createContext()
+export const WordContext = React.createContext();
 
 export default function WordContextProvider(props){
 
   const [word, setWord] = React.useState(null);
+
+
 
   React.useEffect(() => {
     fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/hello`)
